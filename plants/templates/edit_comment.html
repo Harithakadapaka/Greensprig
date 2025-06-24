@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section class="edit-comment-form">
+    <h2>Edit Comment</h2>
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        {{ form.as_p }}
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="submit-btn">Save Changes</button>
+        <a href="{% url 'post_detail' comment.post.pk %}" class="cancel-btn">Cancel</a>
+      </div>
+    </form>
+  </section>
+
+  <style>
+    .edit-comment-form {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .edit-comment-form h2 {
+      font-size: 1.8em;
+      color: #388e3c;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.1em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #388e3c;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .submit-btn,
+    .cancel-btn {
+      padding: 12px 20px;
+      font-size: 1.1em;
+      border-radius: 6px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .submit-btn {
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #2c6e2d;
+    }
+
+    .cancel-btn {
+      background-color: #f44336;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      padding: 12px 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cancel-btn:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Posts tagged with "{{ tag }}"</h2>
+
+  {% if posts %}
+    {% for post in posts %}
+      <div>
+        <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
+        <p>{{ post.content|slice:":150" }}...</p>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No posts found with this tag.</p>
+  {% endif %}
+{% endblock %}

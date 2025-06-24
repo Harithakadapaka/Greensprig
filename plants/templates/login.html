@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="login-wrapper">
+    <div class="login-card">
+      <h2>Login</h2>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        
+        {% for field in form %}
+          <div class="form-group">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.errors %}
+              <small class="error">{{ field.errors|striptags }}</small>
+            {% endif %}
+          </div>
+        {% endfor %}
+
+        <button type="submit" class="btn-primary">Log In</button>
+      </form>
+      <p class="signup-link">
+        Don’t have an account? <a href="{% url 'signup' %}">Sign up</a>
+      </p>
+    </div>
+  </div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+  .login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+  }
+
+  .login-card {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .login-card h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-size: 1.8rem;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+
+  .error {
+    color: red;
+    font-size: 0.9rem;
+  }
+
+  .btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .btn-primary:hover {
+    background-color: #45a049;
+  }
+
+  .signup-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.95rem;
+  }
+
+  .signup-link a {
+    color: #4CAF50;
+    text-decoration: none;
+  }
+
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+</style>
+{% endblock %}

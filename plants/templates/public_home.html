@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Greensprig 🌿</title>
+    <style>
+        /* Body and overall background */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://example.com/your-background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #2f4f4f;
+        }
+
+        header {
+            background: rgba(76, 175, 80, 0.8); /* Semi-transparent green */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .intro, .features, .cta {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8); /* Slightly transparent white for content background */
+            border-radius: 8px;
+        }
+
+        .intro h2 {
+            font-size: 2em;
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            background: #d9fdd3;
+            margin: 10px auto;
+            padding: 15px;
+            border-radius: 8px;
+            max-width: 500px;
+        }
+
+        .btn-signup {
+            display: inline-block;
+            background: #4caf50;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+
+        .btn-signup:hover {
+            background: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #e0e0e0;
+            color: #555;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Greensprig 🌿</h1>
+        <nav>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'signup' %}">Sign Up</a>
+        </nav>
+    </header>
+
+    <section class="intro">
+        <h2>Grow with Us 🌱</h2>
+        <p>Welcome to Greensprig — your community for all things gardening! Discover tips, share your journey, and learn from fellow plant lovers.</p>
+    </section>
+
+    <section class="features">
+        <h3>Why Join Greensprig?</h3>
+        <ul>
+            <li>🌼 Share your garden stories</li>
+            <li>📸 Post photos of your plants</li>
+            <li>📝 Learn from seasonal gardening tips</li>
+            <li>💬 Connect with green sprigs around the world</li>
+        </ul>
+    </section>
+
+    <section class="cta">
+        <a href="{% url 'signup' %}" class="btn-signup">Get Started Free</a>
+    </section>
+
+    <footer>
+        <p>&copy; {{ year|default:2025 }} Greensprig. Happy Gardening! 🌾</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <h2>Create an Account</h2>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {% for field in form %}
+          <div class="form-group">
+            {{ field.label_tag }}
+            {{ field }}
+            <small class="error">{{ field.errors }}</small>
+          </div>
+        {% endfor %}
+        <button type="submit" class="btn-primary">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+    </div>
+  </div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+  .auth-wrapper {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 30px;
+  }
+
+  .auth-card {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .auth-card h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #2c3e50;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+
+  .error {
+    color: red;
+    font-size: 0.85rem;
+  }
+
+  .btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .btn-primary:hover {
+    background-color: #45a049;
+  }
+
+  .auth-card p {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  .auth-card a {
+    color: #4CAF50;
+    text-decoration: none;
+  }
+
+  .auth-card a:hover {
+    text-decoration: underline;
+  }
+</style>
+{% endblock %}

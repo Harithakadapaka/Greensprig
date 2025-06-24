@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section class="create-post-form">
+    <h2>Create a New Gardening Tip</h2>
+
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      
+      <!-- Display form errors -->
+      {{ form.non_field_errors }}
+
+      <!-- Title -->
+      <div class="form-group">
+        <label for="{{ form.title.id_for_label }}">{{ form.title.label }}</label>
+        {{ form.title }}
+        {{ form.title.errors }}
+      </div>
+
+      <!-- Content -->
+      <div class="form-group">
+        <label for="{{ form.content.id_for_label }}">{{ form.content.label }}</label>
+        {{ form.content }}
+        {{ form.content.errors }}
+      </div>
+
+      <!-- Image -->
+      <div class="form-group">
+        <label for="{{ form.image.id_for_label }}">{{ form.image.label }}</label>
+        {{ form.image }}
+        {{ form.image.errors }}
+      </div>
+
+      <!-- Categories -->
+      <div class="form-group">
+        <label for="{{ form.categories.id_for_label }}">{{ form.categories.label }}</label>
+        {{ form.categories }}
+        {{ form.categories.errors }}
+      </div>
+
+      <!-- Tags -->
+      <div class="form-group">
+        <label for="{{ form.tags.id_for_label }}">{{ form.tags.label }}</label>
+        {{ form.tags }}
+        {{ form.tags.errors }}
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-group">
+        <button type="submit" class="submit-btn">Post</button>
+      </div>
+    </form>
+  </section>
+
+  <style>
+    /* Create Post Form Styling */
+    .create-post-form {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #fafafa;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .create-post-form h2 {
+      font-size: 2em;
+      color: #388e3c;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 1.2em;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.1em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+    }
+
+    .form-group input[type="file"] {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #4caf50;
+    }
+
+    .form-group textarea {
+      height: 180px;
+    }
+
+    .form-group input[type="text"],
+    .form-group select {
+      margin-bottom: 5px;
+    }
+
+    .submit-btn {
+      padding: 12px 20px;
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      margin-bottom: 10px;
+    }
+
+    /* Error message styling */
+    .form-group .error {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    .form-group input.error,
+    .form-group textarea.error,
+    .form-group select.error {
+      border-color: red;
+    }
+  </style>
+{% endblock %}

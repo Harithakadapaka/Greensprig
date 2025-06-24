@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="logout-wrapper">
+    <div class="logout-card">
+      <h2>You've been logged out</h2>
+      <p>Thanks for visiting. <a href="{% url 'login' %}">Log in again?</a></p>
+    </div>
+  </div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+  .logout-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #f4f7fa;
+  }
+
+  .logout-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .logout-card h2 {
+    color: #2c3e50;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .logout-card p {
+    color: #555;
+  }
+
+  .logout-card a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .logout-card a:hover {
+    text-decoration: underline;
+  }
+</style>
+{% endblock %}
