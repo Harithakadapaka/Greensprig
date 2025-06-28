@@ -2,7 +2,7 @@
 
 GreenSprig is a Django-based platform promoting eco-conscious posts, community interactions, and seasonal gardening knowledge.
 
-## 🚀 Features
+## Features
 
 - User authentication (signup/login)
 - Post creation, editing, and deletion
@@ -12,7 +12,7 @@ GreenSprig is a Django-based platform promoting eco-conscious posts, community i
 - Profile management
 - Educational resources section
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - Python 3.8+
 - Django 3.x/4.x
@@ -20,7 +20,7 @@ GreenSprig is a Django-based platform promoting eco-conscious posts, community i
 - Taggit for tagging
 - Bootstrap (frontend)
 
-## ⚙️ Local Setup
+##  Local Setup
 
 1. **Clone the repo**
    ```bash
@@ -57,13 +57,13 @@ GreenSprig is a Django-based platform promoting eco-conscious posts, community i
 
 7. **Access the app** at `http://127.0.0.1:8000/`
 
-## 🧪 Run Tests
+##  Run Tests
 
 ```bash
 python manage.py test
 ```
 
-## 🐳 Run with Docker
+##  Run with Docker
 
 1. **Build Docker image**
    ```bash
@@ -75,7 +75,7 @@ python manage.py test
    docker run -d -p 8000:8000 greensprig-app
    ```
 
-## 📂 Directory Structure
+##  Directory Structure
 
 ```
 greensprig_app/
@@ -96,6 +96,6 @@ greensprig_app/
 └── requirements.txt
 ```
 
-## 📄 License
+##  License
 
 MIT License – Feel free to use, extend, and contribute!
