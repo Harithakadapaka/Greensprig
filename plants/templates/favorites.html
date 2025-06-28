@@ -14,7 +14,7 @@
             <div class="card-body">
               <h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
               <p class="card-excerpt">{{ post.content|truncatewords:20 }}</p>
-              <p class="card-meta">by {{ post.author.username }} | {{ post.created_at|date:"F j, Y" }}</p>
+              <p class="card-meta">by {{ post.author.username }} | {{ post.created_at|date:"F j, Y" }}| Favorites: {{ post.favorites_count }}</p>
             </div>
           </div>
         {% endfor %}

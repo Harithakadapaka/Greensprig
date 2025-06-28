@@ -1,0 +1,17 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SQLite DB (optional, usually don't commit)
+db.sqlite3
+
+# Django static files
+staticfiles/
+
+# Environment variables file
+.env
+
+# Virtual environment folders
+venv/
+env/

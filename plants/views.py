@@ -9,11 +9,12 @@ from django.urls import reverse
 from .models import Post, Favorite
 from django.core.paginator import Paginator
 from .models import UserProfile
-from django.db.models import Q
+from django.db.models import Q 
 from .models import Post, Category
 from .forms import UserProfileForm
 from .forms import UserSignupForm
 from django.contrib.auth import login
+from django.db.models import Count
 
 
 # Sign-up view
@@ -224,7 +225,10 @@ def toggle_favorite(request, post_id):
 @login_required
 def favorite_posts(request):
     favorites = Favorite.objects.filter(user=request.user).select_related('post')
-    posts = [favorite.post for favorite in favorites]
+    post_ids = favorites.values_list('post_id', flat=True)
+
+    posts = Post.objects.filter(id__in=post_ids).annotate(favorites_count=Count('favorites'))
+
     return render(request, 'favorites.html', {'posts': posts})
 
 def post_list(request):
@@ -269,3 +273,6 @@ def educational_resources(request):
 def tagged_posts(request, tag):
     posts = Post.objects.filter(tags__name__in=[tag])
     return render(request, 'tagged_posts.html', {'tag': tag, 'posts': posts})
+
+def error_view(request):
+    raise Exception("Intentional error!")
